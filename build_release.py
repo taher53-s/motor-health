@@ -6,7 +6,7 @@ code=(root/'inference.mjs').read_text().replace('export function','function')+'\
 code+=constant('HTML',(root/'index.html').read_text())
 for name,file in [('MODEL','model.json'),('REPORT','report.json'),('MANIFEST','manifest.json'),('SAMPLES','samples.json'),('RELEASE','release.json')]:code+=constant(name,json.loads((e/file).read_text()))
 sample_ids={str(x['id']) for x in json.loads((e/'samples.json').read_text())}
-replay={id:[] for id in sample_ids}
+replay={id:[] for id in sorted(sample_ids)}
 with (e/'features.csv').open(newline='') as f:
  for row in csv.DictReader(f):
   if row['recording'] in replay:
