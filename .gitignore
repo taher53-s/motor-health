@@ -1,5 +1,6 @@
 node_modules/
-evidence/data/
+evidence/data/*
+!evidence/data/*.mat
 evidence/results/
 *.log
 

@@ -10,7 +10,7 @@ Each 2,048-value acceleration window yields RMS, kurtosis and crest factor. The 
 
 ## Reproduce the evaluation
 
-Install `evidence/requirements.txt`, then run `python evidence/run_experiment.py`. The script downloads the 13 official CWRU `.mat` files and verifies their SHA-256 values against `evidence/expected_manifest.json`. It keeps entire recordings in train, validation or test partitions. Source downloads are excluded from this repository. The generated outputs are in `evidence/results/`; the checked-in release artifacts are in `evidence/`.
+Install `evidence/requirements.txt`, then run `python evidence/run_experiment.py`. The script downloads the 13 official CWRU `.mat` files and verifies their SHA-256 values against `evidence/expected_manifest.json`. It keeps entire recordings in train, validation or test partitions. All 13 original MATLAB recordings are included in `evidence/data/`, with SHA-256 checksums in `evidence/expected_manifest.json`. Processed features are in `evidence/features.csv` and model predictions are in `evidence/predictions.csv`. The generated outputs are in `evidence/results/`; the checked-in release artifacts are in `evidence/`.
 
 The held-out set has 1,897 windows from eight recordings. Windows within the same recording are correlated. RMS and autoencoder each reach AUC 1.000 on this controlled set, which does not establish perfect field performance or early fault prediction. `evidence/parity-tests.json` records 8,889 Python/Worker score comparisons (2,963 windows × 3 models); these verify implementation agreement, not accuracy. NASA IMS was identified during planning but not evaluated in this experiment.
 
