@@ -1,0 +1,170 @@
+[
+  {
+    "k": "FINAL REVIEW / BTECH CAP 501",
+    "title": "Motor health.\nBefore failure.",
+    "sub": "Vibration-based bearing condition analysis",
+    "type": "hero",
+    "items": [
+      [
+        "Taher Sohagpurwala",
+        "2409540"
+      ],
+      [
+        "Harsh Agrawal",
+        "2410131"
+      ],
+      [
+        "Manthan Kumar",
+        "2411029"
+      ]
+    ]
+  },
+  {
+    "k": "01 / THE PROBLEM",
+    "title": "Inspect before\na breakdown",
+    "sub": "Vibration measurements support timely bearing inspection.",
+    "type": "signal",
+    "items": [
+      [
+        "Detect a change",
+        "Measure unusual vibration."
+      ],
+      [
+        "Support a decision",
+        "An engineer decides the next step."
+      ]
+    ]
+  },
+  {
+    "k": "02 / PROJECT LIFECYCLE",
+    "title": "Six stages. One feedback loop.",
+    "sub": "CRISP-DM keeps the project organised from problem to operation.",
+    "type": "journey",
+    "items": [
+      [
+        "Define",
+        "Maintenance problem"
+      ],
+      [
+        "Prepare",
+        "Clean vibration data"
+      ],
+      [
+        "Build",
+        "Features + models"
+      ],
+      [
+        "Evaluate",
+        "Check errors + speed"
+      ],
+      [
+        "Release",
+        "API + dashboard"
+      ],
+      [
+        "Monitor",
+        "Review drift + alerts"
+      ]
+    ]
+  },
+  {
+    "k": "03 / DATA & FEATURES",
+    "title": "From vibration to three features",
+    "sub": "CWRU drive-end recordings are split by complete recording.",
+    "type": "data",
+    "items": [
+      [
+        "13 files",
+        "Official CWRU data"
+      ],
+      [
+        "2,048",
+        "Values in one window"
+      ],
+      [
+        "03",
+        "RMS · kurtosis · crest factor"
+      ]
+    ]
+  },
+  {
+    "k": "04 / MODEL COMPARISON",
+    "title": "Compare before adding complexity",
+    "sub": "Thresholds and the winner were chosen on validation data.",
+    "type": "models",
+    "items": [
+      [
+        "RMS rule",
+        "One calibrated threshold"
+      ],
+      [
+        "Isolation Forest",
+        "100 anomaly-detection trees"
+      ],
+      [
+        "Autoencoder",
+        "3 → 6 → 2 → 6 → 3 network"
+      ]
+    ]
+  },
+  {
+    "k": "05 / MEASURED RESULTS",
+    "title": "The simple model held up",
+    "sub": "RMS and autoencoder tied on this CWRU test set.",
+    "type": "results",
+    "items": [
+      [
+        "1.000",
+        "RMS test ROC-AUC"
+      ],
+      [
+        "0.981",
+        "Isolation Forest test ROC-AUC"
+      ],
+      [
+        "1.000",
+        "Autoencoder test ROC-AUC"
+      ]
+    ]
+  },
+  {
+    "k": "06 / DEPLOYED SYSTEM",
+    "title": "The score becomes an action",
+    "sub": "Python trained the models. The hosted API scores each window.",
+    "type": "flow",
+    "items": [
+      [
+        "Signal",
+        "2,048 values"
+      ],
+      [
+        "Features",
+        "RMS · kurtosis · crest factor"
+      ],
+      [
+        "Model",
+        "Raw anomaly score"
+      ],
+      [
+        "Health",
+        "0–1 index + action"
+      ]
+    ]
+  },
+  {
+    "k": "07 / FINAL DEMONSTRATION",
+    "title": "Motor health.\nReady for review.",
+    "sub": "Select a recording, analyse it and inspect the result.",
+    "type": "finish",
+    "items": [
+      [
+        "Live site",
+        "Run bearing analysis"
+      ],
+      [
+        "Handover",
+        "Results and deployment complete"
+      ]
+    ]
+  }
+]

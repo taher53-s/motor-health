@@ -1,0 +1,16 @@
+{
+  "name":"Motor Health / cwru-48k-v1",
+  "intended_use":"Academic bearing-fault screening on the documented CWRU subset; human review only",
+  "selected":"RMS threshold",
+  "alternatives":["Isolation Forest","Autoencoder"],
+  "input":"Exactly 2048 finite drive-end acceleration samples in the CWRU source amplitude scale; declared nominal sampling rate 48000 Hz",
+  "output":"Raw anomaly score, decision threshold, normal/anomaly decision, computed features, artifact version and input hash",
+  "training_data":"One healthy 0 HP CWRU recording, 119 windows. RMS threshold is calibrated using validation labels.",
+  "validation_data":"Four recordings at 1 HP, 947 windows",
+  "test_data":"Eight recordings at 2–3 HP, 1897 windows",
+  "selection":"Validation balanced accuracy, validation AUC, then simplicity",
+  "excluded_uses":["Automatic machine shutdown","Remaining useful life estimation","Failure-date prediction","Unvalidated sensors, scale, sampling rate or bearing geometries"],
+  "limitations":["Few correlated laboratory recordings","Seeded faults and shared conditions across loads","No independent-bearing or plant validation","No NASA IMS evaluation","No drift job, durable prediction log or automatic retraining"],
+  "monitoring_status":"Input validation and health/version endpoint implemented; production monitoring and retraining are future handover work",
+  "dataset_sources":["https://engineering.case.edu/bearingdatacenter/normal-baseline-data","https://engineering.case.edu/bearingdatacenter/48k-drive-end-bearing-fault-data"]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "real_sample_model_requests": 24,
+  "replay_score_checks": 24,
+  "invalid_input_cases": 8,
+  "method_and_content_type_checks": 2,
+  "download_checks": 2,
+  "slide_count": 8
+}

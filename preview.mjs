@@ -1,0 +1,3 @@
+import http from 'node:http';
+import worker from './worker.mjs';
+http.createServer(async(req,res)=>{try{const chunks=[];for await(const c of req)chunks.push(c);const data=Buffer.concat(chunks);const request=new Request('http://localhost'+req.url,{method:req.method,headers:req.headers,...(data.length?{body:data}: {})});const response=await worker.fetch(request);res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()))}catch(e){res.writeHead(500);res.end('Preview error')}}).listen(Number(process.argv.includes('--port')?process.argv[process.argv.indexOf('--port')+1]:(process.env.PORT||3000)),'0.0.0.0');

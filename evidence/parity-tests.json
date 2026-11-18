@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "windows": 2963,
+  "model_comparisons": 8889,
+  "raw_signal_feature_checks": 8,
+  "invalid_input_checks": 4,
+  "max_relative_score_error": 5.2735593669694936e-15
+}

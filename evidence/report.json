@@ -1,0 +1,391 @@
+{
+  "experiment_id": "cwru-48k-v1",
+  "created_utc": "2026-11-17T16:59:04Z",
+  "seed": 42,
+  "dataset": "CWRU drive-end, 48 kHz, 0.007-inch seeded faults, outer race at 6 oclock",
+  "window_size": 2048,
+  "window_ms": 42.666666666666664,
+  "features": [
+    "rms",
+    "kurtosis",
+    "crest_factor"
+  ],
+  "split_policy": "Train: Normal_0. Validation: all four selected conditions at 1 HP. Test: all four conditions at 2 and 3 HP. Entire recordings kept separate; no overlapping windows.",
+  "selection_policy": "Maximum validation balanced accuracy, then validation ROC-AUC, then simpler model. No test-set tuning.",
+  "selected": "RMS threshold",
+  "counts": {
+    "train": {
+      "recordings": 1,
+      "windows": 119
+    },
+    "validation": {
+      "recordings": 4,
+      "windows": 947
+    },
+    "test": {
+      "recordings": 8,
+      "windows": 1897
+    }
+  },
+  "models": [
+    {
+      "name": "RMS threshold",
+      "threshold": 0.09722280486797272,
+      "validation": {
+        "roc_auc": 1.0,
+        "balanced_accuracy": 1.0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "false_alarm_rate": 0.0,
+        "confusion_matrix": [
+          [
+            236,
+            0
+          ],
+          [
+            0,
+            711
+          ]
+        ],
+        "n": 947,
+        "healthy": 236,
+        "fault": 711
+      },
+      "test": {
+        "roc_auc": 1.0,
+        "balanced_accuracy": 1.0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "false_alarm_rate": 0.0,
+        "confusion_matrix": [
+          [
+            473,
+            0
+          ],
+          [
+            0,
+            1424
+          ]
+        ],
+        "n": 1897,
+        "healthy": 473,
+        "fault": 1424
+      },
+      "per_test_recording": [
+        {
+          "id": "99",
+          "name": "Normal_2",
+          "label": 0,
+          "windows": 236,
+          "flagged": 0,
+          "flagged_rate": 0.0
+        },
+        {
+          "id": "100",
+          "name": "Normal_3",
+          "label": 0,
+          "windows": 237,
+          "flagged": 0,
+          "flagged_rate": 0.0
+        },
+        {
+          "id": "111",
+          "name": "IR007_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "112",
+          "name": "IR007_3",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "124",
+          "name": "B007_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "125",
+          "name": "B007_3",
+          "label": 1,
+          "windows": 238,
+          "flagged": 238,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "137",
+          "name": "OR007@6_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "138",
+          "name": "OR007@6_3",
+          "label": 1,
+          "windows": 238,
+          "flagged": 238,
+          "flagged_rate": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Isolation Forest",
+      "threshold": 0.6216603452275453,
+      "validation": {
+        "roc_auc": 0.9885158168251926,
+        "balanced_accuracy": 0.9534702853464923,
+        "recall": 0.9620253164556962,
+        "precision": 0.9813486370157819,
+        "f1": 0.9715909090909091,
+        "false_alarm_rate": 0.05508474576271186,
+        "confusion_matrix": [
+          [
+            223,
+            13
+          ],
+          [
+            27,
+            684
+          ]
+        ],
+        "n": 947,
+        "healthy": 236,
+        "fault": 711
+      },
+      "test": {
+        "roc_auc": 0.9807082452431289,
+        "balanced_accuracy": 0.9200870905290164,
+        "recall": 0.9585674157303371,
+        "precision": 0.9605911330049262,
+        "f1": 0.9595782073813708,
+        "false_alarm_rate": 0.11839323467230443,
+        "confusion_matrix": [
+          [
+            417,
+            56
+          ],
+          [
+            59,
+            1365
+          ]
+        ],
+        "n": 1897,
+        "healthy": 473,
+        "fault": 1424
+      },
+      "per_test_recording": [
+        {
+          "id": "99",
+          "name": "Normal_2",
+          "label": 0,
+          "windows": 236,
+          "flagged": 23,
+          "flagged_rate": 0.09745762711864407
+        },
+        {
+          "id": "100",
+          "name": "Normal_3",
+          "label": 0,
+          "windows": 237,
+          "flagged": 33,
+          "flagged_rate": 0.13924050632911392
+        },
+        {
+          "id": "111",
+          "name": "IR007_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "112",
+          "name": "IR007_3",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "124",
+          "name": "B007_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 205,
+          "flagged_rate": 0.8649789029535865
+        },
+        {
+          "id": "125",
+          "name": "B007_3",
+          "label": 1,
+          "windows": 238,
+          "flagged": 211,
+          "flagged_rate": 0.8865546218487395
+        },
+        {
+          "id": "137",
+          "name": "OR007@6_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "138",
+          "name": "OR007@6_3",
+          "label": 1,
+          "windows": 238,
+          "flagged": 238,
+          "flagged_rate": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Autoencoder",
+      "threshold": 56.61874276259485,
+      "validation": {
+        "roc_auc": 1.0,
+        "balanced_accuracy": 1.0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "false_alarm_rate": 0.0,
+        "confusion_matrix": [
+          [
+            236,
+            0
+          ],
+          [
+            0,
+            711
+          ]
+        ],
+        "n": 947,
+        "healthy": 236,
+        "fault": 711
+      },
+      "test": {
+        "roc_auc": 1.0,
+        "balanced_accuracy": 1.0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "false_alarm_rate": 0.0,
+        "confusion_matrix": [
+          [
+            473,
+            0
+          ],
+          [
+            0,
+            1424
+          ]
+        ],
+        "n": 1897,
+        "healthy": 473,
+        "fault": 1424
+      },
+      "per_test_recording": [
+        {
+          "id": "99",
+          "name": "Normal_2",
+          "label": 0,
+          "windows": 236,
+          "flagged": 0,
+          "flagged_rate": 0.0
+        },
+        {
+          "id": "100",
+          "name": "Normal_3",
+          "label": 0,
+          "windows": 237,
+          "flagged": 0,
+          "flagged_rate": 0.0
+        },
+        {
+          "id": "111",
+          "name": "IR007_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "112",
+          "name": "IR007_3",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "124",
+          "name": "B007_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "125",
+          "name": "B007_3",
+          "label": 1,
+          "windows": 238,
+          "flagged": 238,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "137",
+          "name": "OR007@6_2",
+          "label": 1,
+          "windows": 237,
+          "flagged": 237,
+          "flagged_rate": 1.0
+        },
+        {
+          "id": "138",
+          "name": "OR007@6_3",
+          "label": 1,
+          "windows": 238,
+          "flagged": 238,
+          "flagged_rate": 1.0
+        }
+      ]
+    }
+  ],
+  "latency": {
+    "median_ms": 0.1387940028507728,
+    "p95_ms": 0.15701919874118173,
+    "requests": 100,
+    "scope": "Local Python feature extraction + selected model; excludes network",
+    "hardware": "x86_64",
+    "processor": ""
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0"
+  },
+  "fit_warnings": [],
+  "limitations": [
+    "Only 13 recordings and one CWRU rig; windows within a recording are correlated.",
+    "Test loads differ, but fault specimens/types are shared; this is not a new-bearing or new-factory generalisation test.",
+    "Only 0.007-inch seeded faults; no fault progression, RUL, or early-warning lead time is measured.",
+    "NASA IMS was identified in planning, but not trained or evaluated in this experiment.",
+    "Three features were chosen for simplicity, not proved optimal by ablation.",
+    "Reported window-level scores should not be treated as independent repeated trials or plant reliability."
+  ]
+}

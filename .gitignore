@@ -1,0 +1,11 @@
+node_modules/
+evidence/data/
+evidence/results/
+*.log
+
+.vercel/
+dist/
+public/
+.env*
+!.env.example
+.DS_Store

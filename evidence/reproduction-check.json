@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "method": "Extract evidence bundle into a separate directory; rerun with cached source files checked against frozen hashes",
+  "prediction_csv_exact_match": true,
+  "prediction_sha256": "9baff5e5bff19288c184be6c6922a45b719f897a2bc1f31b1ba00202b6e09d38"
+}

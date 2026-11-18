@@ -1,0 +1,9 @@
+{
+  "release": "cwru-48k-v1",
+  "model_sha256": "0744cad2284c6329f7402042ba10f01386b23f6b7fdf5cbb4c56b0e484a27965",
+  "experiment_code_sha256": "fbc3205e4126f935f63622904142de516bd7c56d2888a2ec80a7f4b375849805",
+  "evidence_zip_sha256": "5ca63576333a33f06542ec31ce25deed4d0fbbcbe8ba973c7aabd97977df19fd",
+  "deployment_commit": "Recorded in the Sites saved version; publication receipt supplied with handover.",
+  "runtime": "Sites Worker / JavaScript",
+  "persistence": "Immutable embedded artifacts; SQLite is a downloadable snapshot, not a runtime connection"
+}
