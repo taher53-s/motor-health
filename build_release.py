@@ -48,5 +48,8 @@ export default {async fetch(request){const path=new URL(request.url).pathname;
 '''
 (root/'dist/server').mkdir(parents=True,exist_ok=True)
 (root/'public').mkdir(exist_ok=True)
+(root/'public/index.html').write_text((root/'index.html').read_text())
+(root/'public/assets').mkdir(exist_ok=True)
+(root/'public/assets/motor.jpg').write_bytes((root/'assets/motor.jpg').read_bytes())
 (root/'worker.mjs').write_text(code);(root/'dist/server/index.js').write_text(code)
 print('Built Worker:',len(code),'bytes')
