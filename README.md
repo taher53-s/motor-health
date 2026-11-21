@@ -1,6 +1,14 @@
-# Motor Health — CWRU bearing condition dashboard
+# Motor Health: Bearing Condition Monitoring
 
-A project life cycle management demonstration with a deployed JavaScript inference API, a continuous dashboard that replays recorded vibration windows, and reproducible Python evaluation.
+**Academic project · BTECH CAP 501 · ATLAS / uGDX**
+
+**Team:** Taher Sohagpurwala, Harsh Agrawal, and Manthan Kumar
+
+[Live dashboard](https://motor-health.vercel.app) · [Dataset](evidence/data/) · [Evaluation report](evidence/report.json) · [Presentation](presentation/Motor_Health_8_Slides_Enhanced.pptx)
+
+## Project overview
+
+A project life cycle management assignment with a deployed JavaScript inference API, a continuous dashboard that replays recorded vibration windows, and reproducible Python evaluation.
 
 ## What the dashboard shows
 
@@ -18,7 +26,7 @@ The held-out set has 1,897 windows from eight recordings. Windows within the sam
 
 `build_release.py` creates a self-contained Cloudflare Worker at `dist/server/index.js` from the checked-in artifacts and UI. `test.mjs` exercises the API and playback scores. The key endpoints are `GET /api/health`, `GET /api/report`, `GET /api/samples`, `GET /api/replay?recording=99&window=0`, and `POST /api/predict` for a 2,048-value 48 kHz CWRU-scale window.
 
-The `presentation/` directory contains the eight-slide presentation supplied for the class, visually enhanced without changing its text. Some wording reflects an earlier project plan; the running application and this README describe the implemented system.
+The `presentation/` directory contains the eight-slide project presentation. Planned extensions described there should be distinguished from the implemented functionality documented here.
 
 ## Vercel deployment and backend storage
 
@@ -26,4 +34,46 @@ Run `npm run build` and `npm test`, then `vercel --prod`. The TypeScript entry p
 
 The backend runs on Vercel. Model parameters, recordings, and evaluation artifacts are versioned in Git and bundled into each deployment. `evidence/evidence.sqlite` is a read-only evaluation snapshot offered as a download, not a writable production database. Prediction requests run in memory and are not saved. No Supabase or other external database is configured. Persistent users, sensor readings, and prediction history would require a separate database integration.
 
-The source ZIP omitted `presentation.json`; it has been recovered from the supplied Worker's slides endpoint so the build is reproducible.
+
+
+## Local setup
+
+Requirements: Node.js 24 and Python 3. Python evaluation dependencies are listed in `evidence/requirements.txt`.
+
+```bash
+npm run build
+npm test
+npm run dev
+```
+
+Open `http://localhost:3000`. To reproduce the scientific evaluation:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r evidence/requirements.txt
+python3 evidence/run_experiment.py
+```
+
+## Submission contents
+
+| Location | Purpose |
+| --- | --- |
+| `index.html` | Dashboard interface |
+| `inference.mjs` | Feature extraction and model scoring |
+| `api/index.ts` | Vercel backend entry point |
+| `evidence/data/` | 13 original MATLAB recordings |
+| `evidence/features.csv` | Extracted vibration features |
+| `evidence/predictions.csv` | Evaluation predictions |
+| `evidence/evidence.sqlite` | Read-only evaluation database |
+| `evidence/expected_manifest.json` | Source URLs and verification checksums |
+| `evidence/report.json` | Evaluation metrics and experiment details |
+| `presentation/` | Project presentation |
+
+## Scope and future work
+
+This submission demonstrates reproducible benchmark evaluation, backend inference, and an interactive recording dashboard. Physical sensor integration, persistent telemetry storage, automated fault notifications, and validation on industrial equipment are future work.
+
+## Data acknowledgement
+
+The vibration recordings originate from the Case Western Reserve University Bearing Data Center. Source URLs and checksums are retained in the dataset manifest. The recordings are third-party research data; this repository does not claim authorship or ownership of them.

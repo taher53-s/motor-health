@@ -11,3 +11,6 @@ public/
 !.env.example
 .DS_Store
 .vercel
+
+.venv/
+__pycache__/
